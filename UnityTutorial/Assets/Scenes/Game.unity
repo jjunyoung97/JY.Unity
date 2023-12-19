@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &160207985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160207987}
+  - component: {fileID: 160207986}
+  m_Layer: 0
+  m_Name: Factory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &160207986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160207985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15348713160eebb469384f41af02a441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPosition: {fileID: 2030290764}
+--- !u!4 &160207987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160207985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +348,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 7.5, y: 4, z: 10}
+  m_LocalPosition: {x: 0, y: 4, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -338,9 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb749cf4a4b21cf42af0666ed66d24ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 1000012226140144, guid: 11db918338e063f4b86b6024c791e5a8, type: 3}
-  createPosition1: {fileID: 2030290764}
-  createCount: 5
+  listsunits:
+  - {fileID: 6690354050677320646, guid: 377f2170dca1af941867f83b0d411d8b, type: 3}
+  - {fileID: -7508486427001437532, guid: 8f4304804fb66ab4da3ab0488d9a675a, type: 3}
+  factory: {fileID: 160207986}
 --- !u!4 &1658908234
 Transform:
   m_ObjectHideFlags: 0
@@ -395,3 +441,4 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 1658908234}
   - {fileID: 2030290764}
+  - {fileID: 160207987}

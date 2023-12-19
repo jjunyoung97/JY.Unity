@@ -1,32 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] GameObject unit;
-    [SerializeField] Transform createPosition1;
-
-    [Tooltip("생성할 몬스터의 최댓값")]
-    [SerializeField] int createCount = 5;
-
-
+    [SerializeField] List<Unit> listsunits;
+    [SerializeField] Factory factory;
 
 
     private void Start()
     {
-        // Instantiate : 게임 오브젝트를 생성하는 함수.
-        for (int i = 0; i < createCount; i++)
+        StartCoroutine(CreateRoutine());
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            // 1. 게임 오브젝트 생성
-            GameObject monster = Instantiate(unit, createPosition1); // monster 라는 이름의 참조변수를 만든다.
-
-            // 2. 생성된 게임 오브젝트의 위치를 설정합니다.
-            monster.transform.position = new Vector3 (i*5, 0, createPosition1.position.z);
-
-            Debug.Log("world pos : " + monster.transform.position);
-            Debug.Log("local pos : " + monster.transform.localPosition);
+            StartCoroutine(LogRoutine());
         }
     }
 
+    public IEnumerator CreateRoutine()
+    {
+        while (true)
+        {
+            // Random.Range : 0 ~ 최댓값 -1의 값을 반환하는 함수
+            factory.CreateUnit(listsunits[Random.Range(0, listsunits.Count)]);
+            Debug.Log("생성");
+            yield return new WaitForSeconds(5f); // 특정한 시간동안 코루틴 대기
+        }
+    }
+
+    public IEnumerator LogRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Attack");
+    }
+    
 }
